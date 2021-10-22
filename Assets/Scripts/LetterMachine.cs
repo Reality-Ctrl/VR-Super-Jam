@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using LetterSystem;
@@ -21,6 +22,12 @@ public class LetterMachine : MonoBehaviour
             throw new Exception("Can't read Histories from file.", new FileNotFoundException());
         }
     }
+
+    public List<Letter?> GetListLetters(int size)   //If NULL storage is empty (The letters are over)
+    {
+        return storage.GetListLetters(size);
+    }
+
 
     private void MakeTestFile()
     {
