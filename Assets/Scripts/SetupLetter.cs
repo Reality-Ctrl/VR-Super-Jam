@@ -13,12 +13,14 @@ public class SetupLetter : MonoBehaviour
 
     private void Start()
     {
-        Setup("Captain Aboba", "Serjant Aboba");
+        Setup("Captain Aboba", "Serjant Aboba", "Some title", "Some long text");
     }
 
-    public void Setup(string sender, string recipient)
+    public void Setup(string sender, string recipient, string story_title, string story_text)
     {
         LetterSender.text = sender;
         LetterRecipient.text = recipient;
+        StoryTitle.text = story_title;
+        LetterText.text = story_text;
     }
 }
