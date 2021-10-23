@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace LetterSystem
@@ -14,6 +13,7 @@ namespace LetterSystem
         public string RightButNotRightRecipient;    //City name
         public string text; //Letter text
         public string news; //If history end or u drop msg to RightButNotRightRecipient city
+        [NonSerialized] public bool isLastLetter;
     }
 
     [Serializable]
@@ -21,13 +21,24 @@ namespace LetterSystem
     {
         public string theme = "";
         public List<Letter> letters = new List<Letter>();
-        private int currentLetter = 0;
+        private int currentLetterIndex = 0;
 
         public Letter? GetNextLetter()
         {
-            if (currentLetter < letters.Count)
+            if (currentLetterIndex < letters.Count)
             {
-                return letters[currentLetter++];
+                Letter result = letters[currentLetterIndex];
+
+                if (currentLetterIndex == letters.Count - 1) //Last Letter
+                {
+                    result.isLastLetter = true;
+                }
+                else
+                {
+                    result.isLastLetter = false;
+                    currentLetterIndex++;
+                }
+                return result;
             }
 
             return null;
@@ -35,7 +46,7 @@ namespace LetterSystem
 
         public bool HaveNext()
         {
-            if (currentLetter < letters.Count)
+            if (currentLetterIndex < letters.Count)
             {
                 return true;
             }
