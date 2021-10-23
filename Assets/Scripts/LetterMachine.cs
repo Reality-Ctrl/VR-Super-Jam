@@ -59,11 +59,11 @@ public class LetterMachine : MonoBehaviour
         File.WriteAllText(Path.Combine(Application.dataPath, path), JsonUtility.ToJson(storage));
     }
 
-    public IEnumerator TestCorutine()
+    public IEnumerator TestCorutine(int countLettersPerDay)
     {
         while (true)
         {
-            List<Letter?> letters = GetListLetters(3);
+            List<Letter?> letters = GetListLetters(countLettersPerDay);
             if (letters.Count == 0) yield break;
 
             string res = String.Empty;
@@ -73,7 +73,7 @@ public class LetterMachine : MonoBehaviour
             }
             Debug.Log($"{res}");
 
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.1f);
         }
         yield break;
     }

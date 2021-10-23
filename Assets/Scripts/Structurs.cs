@@ -74,21 +74,19 @@ namespace LetterSystem
                 used.Add(false);
             }
 
-            for (int i = 0; i < size; i++)
+            while (true)
             {
-                for (int j = 0; j < histories.Count; j++)
-                {
-                    if (used[j] == true) continue;
-                    if (resList.Count == size) break;
-                    used[j] = true;
+                if (resList.Count == size || IsAllListTrue(used)) break;
 
-                    Letter? letter = histories[j].GetNextLetter();
-                    if (!letter.Equals(null))
-                    {
-                        resList.Add(letter);
-                    }
+                int randomIndex = Random.Range(0, histories.Count);
+                if (used[randomIndex] == true) continue;
+                used[randomIndex] = true;
+                
+                Letter? letter = histories[randomIndex].GetNextLetter();
+                if (!letter.Equals(null))
+                {
+                    resList.Add(letter);
                 }
-                if (resList.Count == size) break;
             }
 
             return resList;
