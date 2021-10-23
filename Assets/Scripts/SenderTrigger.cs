@@ -1,30 +1,54 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using LetterSystem;
 
 public class SenderTrigger : MonoBehaviour
 {
     [SerializeField] string CityName;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Letter")
         {
-            // тут ваш код)))))
+            Letter letter = other.gameObject.GetComponent<MailBag>().letter;
+            
+            if(CityName == letter.recipient)
+            {
+                RightPlace(letter);
+            }
+            else if(letter.RightButNotRightRecipient == CityName)
+            {
+                RightButNotRightPlace(letter);
+            }
+            else
+            {
+                WrongPlace();
+            }
 
             Destroy(other.gameObject);
         }
+    }
+
+    private void RightPlace(Letter letter)
+    {
+        if (letter.isLastLetter)
+        {
+            //News
+        }
+        else
+        {
+            
+        }
+    }
+
+    private void RightButNotRightPlace(Letter letter)
+    {
+
+    }
+
+    private void WrongPlace()
+    {
+
     }
 }
