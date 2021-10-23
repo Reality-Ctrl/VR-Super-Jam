@@ -6,7 +6,7 @@ using LetterSystem;
 public class SenderTrigger : MonoBehaviour
 {
     [SerializeField] private string CityName;
-    [SerializeField] private NewsDesk newsDesk;
+    [SerializeField] private DayManager dayManager;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -16,37 +16,48 @@ public class SenderTrigger : MonoBehaviour
             
             if(CityName == mailBag.letter.recipient)
             {
-                RightPlace(mailBag.letter);
+                PassLetter(mailBag.letter);
             }
             else if(mailBag.letter.RightButNotRightRecipient == CityName)
             {
-                RightButNotRightPlace(mailBag.letter, mailBag.letterMachine);
+                PassLetter(mailBag.letter, PassType.RightButNotRightRecipient);
             }
             else
             {
-                WrongPlace(mailBag.letter, mailBag.letterMachine);
+                PassLetter(mailBag.letter, PassType.Wrong);
             }
 
             Destroy(other.gameObject);
         }
     }
 
-    private void RightPlace(Letter letter)
+    private void PassLetter(Letter letter, PassType passType = PassType.Right)
     {
-        if (letter.isLastLetter)
+        if (passType == PassType.Right)
         {
-            newsDesk.AddNewsOnNextDay(letter.news);
+            if (letter.isLastLetter)
+            {
+                dayManager.letterPass(letter, true);
+            }
+            else
+            {
+                dayManager.letterPass();
+            }
+        }
+        else if(passType == PassType.RightButNotRightRecipient)
+        {
+            dayManager.letterPass(letter, true);
+        }
+        else if(passType == PassType.Wrong)
+        {
+            dayManager.letterPass(letter);
         }
     }
 
-    private void RightButNotRightPlace(Letter letter, LetterMachine leterMachine)
+    public enum PassType
     {
-        newsDesk.AddNewsOnNextDay(letter.news);
-        leterMachine.RemoveThemeOfLetters(letter.title);
-    }
-
-    private void WrongPlace(Letter letter, LetterMachine leterMachine)
-    {
-        leterMachine.RemoveThemeOfLetters(letter.title);
+        Right,
+        RightButNotRightRecipient,
+        Wrong
     }
 }
