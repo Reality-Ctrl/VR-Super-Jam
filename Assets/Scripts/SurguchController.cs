@@ -25,4 +25,12 @@ public class SurguchController : MonoBehaviour
         NormalState.SetActive(false);
         SecondState.SetActive(true);
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Stamp")
+        {
+            Deformate();
+        }
+    }
 }

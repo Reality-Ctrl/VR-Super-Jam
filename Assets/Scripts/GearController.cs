@@ -5,15 +5,12 @@ using UnityEngine;
 public class GearController : MonoBehaviour
 {
     [SerializeField] float speed;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] float rope_speed;
+    [SerializeField] Renderer rope;
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         gameObject.transform.Rotate(0, speed, 0);
+        rope.material.mainTextureOffset = new Vector2(rope_speed * Time.time, 0);
     }
 }
