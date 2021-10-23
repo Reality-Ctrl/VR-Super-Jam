@@ -16,9 +16,13 @@ public class SurguchController : MonoBehaviour
             Rigidbody.isKinematic = true;
             gameObject.transform.parent = parent.transform;
             gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
-            NormalState.SetActive(false);
-            SecondState.SetActive(true);
             can = false;
         }
+    }
+
+    public void Deformate()
+    {
+        NormalState.SetActive(false);
+        SecondState.SetActive(true);
     }
 }
