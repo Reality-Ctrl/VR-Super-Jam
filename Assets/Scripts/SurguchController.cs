@@ -15,7 +15,8 @@ public class SurguchController : MonoBehaviour
         {
             Rigidbody.isKinematic = true;
             gameObject.transform.parent = parent.transform;
-            gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
+            gameObject.transform.rotation = parent.transform.rotation;
+            gameObject.transform.Rotate(90, 0, 0);
             can = false;
         }
     }

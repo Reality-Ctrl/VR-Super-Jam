@@ -7,6 +7,10 @@ TagManager:
   - Letter
   - Surguch
   - Wood
+  - Stamp
+  - projectile
+  - FxTemporaire
+  - Fire
   layers:
   - Default
   - TransparentFX
