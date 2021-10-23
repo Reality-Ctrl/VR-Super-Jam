@@ -41,7 +41,7 @@ public class SenderTrigger : MonoBehaviour
             }
             else
             {
-                dayManager.letterPass();
+                dayManager.letterPass(letter);
             }
         }
         else if(passType == PassType.RightButNotRightRecipient)

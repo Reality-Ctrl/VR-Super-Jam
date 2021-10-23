@@ -14,20 +14,21 @@ public class DayManager : MonoBehaviour
     public LetterMachine letterMachine;
     [SerializeField] private NewsDesk newsDesk;
     [SerializeField] private GameObject mailBagPrefab;
-
-    public void letterPass()
-    {
-        ++currLetterPass;
-    }
     
-    public void letterPass(Letter letter, bool withNews = false)
+    public void letterPass(Letter letter, bool withNews = false, bool removeHistoryLine = false)
     {
         if (withNews)
         {
             newsDesk.AddNewsOnNextDay(letter.news);
         }
-        letterMachine.RemoveThemeOfLetters(letter.title); 
+
+        if (removeHistoryLine)
+        {
+            letterMachine.RemoveThemeOfLetters(letter.title);
+        }
+
         ++currLetterPass;
+        SpawnNextLetter();
     }
 
     private void StartNewDay()
@@ -43,6 +44,15 @@ public class DayManager : MonoBehaviour
             //Stop
         }
     }
+
+    private void SpawnNextLetter()
+    {
+        if (letters.Count != 0 && currLetterPass < letters.Count)
+        {
+            SpawnLetter((Letter)letters[currLetterPass]);
+        } //else next day
+    }
+
 
     private void SpawnLetter(Letter letter)
     {
