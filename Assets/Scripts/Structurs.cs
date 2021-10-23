@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace LetterSystem
 {
@@ -18,7 +20,7 @@ namespace LetterSystem
     public class History
     {
         public string theme = "";
-        public List<Letter> letters;
+        public List<Letter> letters = new List<Letter>();
         private int currentLetter = 0;
 
         public Letter? GetNextLetter()
@@ -29,6 +31,16 @@ namespace LetterSystem
             }
 
             return null;
+        }
+
+        public bool HaveNext()
+        {
+            if (currentLetter < letters.Count)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 
@@ -52,72 +64,48 @@ namespace LetterSystem
             return res;
         }
 
-        public Letter? GetRandomLetter()
-        {
-            if (histories.Count == 0)
-            {
-                return null;
-            }
-
-            Letter? letter = null;
-            int index = -1;
-
-            while (letter == null)
-            {
-                if (index != -1)
-                {
-                    histories.RemoveAt(index);
-                }
-
-                index = UnityEngine.Random.Range(0, histories.Count - 1);
-                letter = histories[index].GetNextLetter();
-            }
-            return new Letter();
-        }
-
-        public Letter? GetRandomLetter(ref List<History> histories)
-        {
-            if (histories.Count == 0)
-            {
-                return null;
-            }
-
-            Letter? letter = null;
-            int index = -1;
-
-            while (letter == null)
-            {
-                if (index != -1)
-                {
-                    histories.RemoveAt(index);
-                }
-
-                index = UnityEngine.Random.Range(0, histories.Count - 1);
-                letter = histories[index].GetNextLetter();
-            }
-            return new Letter();
-        }
-        
         public List<Letter?> GetListLetters(int size)
         {
-            List<Letter?> lettersRes = new List<Letter?>();
-            List<History> historiesCopy = histories;
+            List<Letter?> resList = new List<Letter?>(size);
+            List<bool> used = new List<bool>(histories.Count);
+
+            for (int i = 0; i < used.Capacity; i++)
+            {
+                used.Add(false);
+            }
 
             for (int i = 0; i < size; i++)
             {
-                Letter? letter = GetRandomLetter(ref historiesCopy);
-                if (letter != null)
+                for (int j = 0; j < histories.Count; j++)
                 {
-                    lettersRes.Add(letter);
+                    if (used[j] == true) continue;
+                    if (resList.Count == size) break;
+                    used[j] = true;
+
+                    Letter? letter = histories[j].GetNextLetter();
+                    if (!letter.Equals(null))
+                    {
+                        resList.Add(letter);
+                    }
+                }
+                if (resList.Count == size) break;
+            }
+
+            return resList;
+        }
+
+
+
+        private bool IsAllListTrue(List<bool> used)
+        {
+            foreach (var isUsed in used)
+            {
+                if (isUsed == false)
+                {
+                    return false;
                 }
             }
-
-            if (lettersRes.Count == 0)
-            {
-                return null;
-            }
-
-            return lettersRes;
+            return true;
         }
     }
 }
