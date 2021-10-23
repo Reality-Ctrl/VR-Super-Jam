@@ -31,6 +31,11 @@ public class LetterMachine : MonoBehaviour
         return storage.GetListLetters(size);
     }
 
+    public void RemoveThemeOfLetters(string theme)
+    {
+        storage.RemoveThemeOfLetters(theme);
+    }
+
     private void MakeTestFile(int historiesCount, int lettersCount)
     {
         storage = new HistoryStorage();

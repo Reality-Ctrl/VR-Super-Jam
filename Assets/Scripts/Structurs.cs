@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using UnityEngine;
+using UnityEditor;
 using Random = UnityEngine.Random;
 
 namespace LetterSystem
@@ -14,6 +14,7 @@ namespace LetterSystem
         public string RightButNotRightRecipient;    //City name
         public string text; //Letter text
         public string news; //If history end or u drop msg to RightButNotRightRecipient city
+        [NonSerialized] public bool isLastLetter;
     }
 
     [Serializable]
@@ -21,13 +22,24 @@ namespace LetterSystem
     {
         public string theme = "";
         public List<Letter> letters = new List<Letter>();
-        private int currentLetter = 0;
+        private int currentLetterIndex = 0;
 
         public Letter? GetNextLetter()
         {
-            if (currentLetter < letters.Count)
+            if (currentLetterIndex < letters.Count)
             {
-                return letters[currentLetter++];
+                Letter result = letters[currentLetterIndex];
+
+                if (currentLetterIndex == letters.Count - 1) //Last Letter
+                {
+                    result.isLastLetter = true;
+                }
+                else
+                {
+                    result.isLastLetter = false;
+                    currentLetterIndex++;
+                }
+                return result;
             }
 
             return null;
@@ -35,7 +47,7 @@ namespace LetterSystem
 
         public bool HaveNext()
         {
-            if (currentLetter < letters.Count)
+            if (currentLetterIndex < letters.Count)
             {
                 return true;
             }
@@ -49,19 +61,16 @@ namespace LetterSystem
     {
         public List<History> histories = new List<History>();
 
-        public override string ToString()
+        public void RemoveThemeOfLetters(string theme)
         {
-            string res = string.Empty;
-
-            foreach (var history in histories)
+            for (int i = 0; i < histories.Count; i++)
             {
-                foreach (var historyLetter in history.letters)
+                if (histories[i].theme == theme)
                 {
-                    res += $"History Theme: {history.theme}, Letters count: {history.letters.Count}, Letter text: {historyLetter.text}; \n";
+                    histories.RemoveAt(i);
+                    break;
                 }
             }
-
-            return res;
         }
 
         public List<Letter?> GetListLetters(int size)
@@ -92,8 +101,6 @@ namespace LetterSystem
             return resList;
         }
 
-
-
         private bool IsAllListTrue(List<bool> used)
         {
             foreach (var isUsed in used)
@@ -104,6 +111,21 @@ namespace LetterSystem
                 }
             }
             return true;
+        }
+
+        public override string ToString()
+        {
+            string res = string.Empty;
+
+            foreach (var history in histories)
+            {
+                foreach (var historyLetter in history.letters)
+                {
+                    res += $"History Theme: {history.theme}, Letters count: {history.letters.Count}, Letter text: {historyLetter.text}; \n";
+                }
+            }
+
+            return res;
         }
     }
 }
