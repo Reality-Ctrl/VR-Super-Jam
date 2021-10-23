@@ -4,6 +4,8 @@ using LetterSystem;
 public class MailBag : MonoBehaviour
 {
     [SerializeField] private SetupLetter setupLetter;
+    [HideInInspector] public LetterMachine letterMachine;
+
     private Letter _letter;
     public Letter letter
     {

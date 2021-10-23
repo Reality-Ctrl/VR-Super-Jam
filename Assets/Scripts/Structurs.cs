@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEditor;
 using Random = UnityEngine.Random;
 
 namespace LetterSystem
@@ -60,19 +61,16 @@ namespace LetterSystem
     {
         public List<History> histories = new List<History>();
 
-        public override string ToString()
+        public void RemoveThemeOfLetters(string theme)
         {
-            string res = string.Empty;
-
-            foreach (var history in histories)
+            for (int i = 0; i < histories.Count; i++)
             {
-                foreach (var historyLetter in history.letters)
+                if (histories[i].theme == theme)
                 {
-                    res += $"History Theme: {history.theme}, Letters count: {history.letters.Count}, Letter text: {historyLetter.text}; \n";
+                    histories.RemoveAt(i);
+                    break;
                 }
             }
-
-            return res;
         }
 
         public List<Letter?> GetListLetters(int size)
@@ -103,8 +101,6 @@ namespace LetterSystem
             return resList;
         }
 
-
-
         private bool IsAllListTrue(List<bool> used)
         {
             foreach (var isUsed in used)
@@ -115,6 +111,21 @@ namespace LetterSystem
                 }
             }
             return true;
+        }
+
+        public override string ToString()
+        {
+            string res = string.Empty;
+
+            foreach (var history in histories)
+            {
+                foreach (var historyLetter in history.letters)
+                {
+                    res += $"History Theme: {history.theme}, Letters count: {history.letters.Count}, Letter text: {historyLetter.text}; \n";
+                }
+            }
+
+            return res;
         }
     }
 }

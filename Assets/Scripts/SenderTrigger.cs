@@ -5,25 +5,26 @@ using LetterSystem;
 
 public class SenderTrigger : MonoBehaviour
 {
-    [SerializeField] string CityName;
+    [SerializeField] private string CityName;
+    [SerializeField] private NewsDesk newsDesk;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Letter")
         {
-            Letter letter = other.gameObject.GetComponent<MailBag>().letter;
+            MailBag mailBag = other.gameObject.GetComponent<MailBag>();
             
-            if(CityName == letter.recipient)
+            if(CityName == mailBag.letter.recipient)
             {
-                RightPlace(letter);
+                RightPlace(mailBag.letter);
             }
-            else if(letter.RightButNotRightRecipient == CityName)
+            else if(mailBag.letter.RightButNotRightRecipient == CityName)
             {
-                RightButNotRightPlace(letter);
+                RightButNotRightPlace(mailBag.letter, mailBag.letterMachine);
             }
             else
             {
-                WrongPlace();
+                WrongPlace(mailBag.letter, mailBag.letterMachine);
             }
 
             Destroy(other.gameObject);
@@ -34,21 +35,18 @@ public class SenderTrigger : MonoBehaviour
     {
         if (letter.isLastLetter)
         {
-            //News
-        }
-        else
-        {
-            
+            newsDesk.AddNewsOnNextDay(letter.news);
         }
     }
 
-    private void RightButNotRightPlace(Letter letter)
+    private void RightButNotRightPlace(Letter letter, LetterMachine leterMachine)
     {
-
+        newsDesk.AddNewsOnNextDay(letter.news);
+        leterMachine.RemoveThemeOfLetters(letter.title);
     }
 
-    private void WrongPlace()
+    private void WrongPlace(Letter letter, LetterMachine leterMachine)
     {
-
+        leterMachine.RemoveThemeOfLetters(letter.title);
     }
 }
