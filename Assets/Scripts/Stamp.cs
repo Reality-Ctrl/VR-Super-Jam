@@ -8,7 +8,6 @@ public class Stamp : MonoBehaviour
 {
     [Header("Settings")] 
     [SerializeField] [Range(0f, 1f)] private float borderTagChange;
-    [SerializeField] private GameObject metalPart;
     [SerializeField] private float heatSpeed = 0.005f;
     [SerializeField] private float coolingSpeed = 0.005f;
     [SerializeField] private MeshRenderer renderer;
@@ -52,11 +51,11 @@ public class Stamp : MonoBehaviour
 
         if (currHeat >= borderTagChange)
         {
-            metalPart.tag = "HeatedStamp";
+            gameObject.tag = "HeatedStamp";
         }
         else
         {
-            metalPart.tag = "Stamp";
+            gameObject.tag = "Stamp";
         }
     }
 

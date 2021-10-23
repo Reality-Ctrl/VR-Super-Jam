@@ -29,7 +29,8 @@ public class SurguchController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Stamp")
+        Debug.Log(collision.gameObject.tag);
+        if (collision.gameObject.tag == "HeatedStamp")
         {
             Deformate();
         }
