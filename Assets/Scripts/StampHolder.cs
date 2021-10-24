@@ -1,37 +1,50 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR;
+using Valve.VR.InteractionSystem;
 
 public class StampHolder : MonoBehaviour
 {
     [SerializeField] GameObject NormalStamp;
     [SerializeField] GameObject[] BrokenStamp;
     [SerializeField] Animator LetterAnimator;
+    [SerializeField] SteamVR_Action_Boolean OpenAction;
+    [SerializeField] Interactable interactable;
+    [SerializeField] bool canOpen = true;
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.O))
+        SteamVR_Input_Sources source = interactable.attachedToHand.handType;
+        if (OpenAction[source].stateDown && LetterAnimator.GetBool("Open") == false)
         {
-            Open();
+            LetterAnimator.SetBool("Open", true);
         }
-        if (Input.GetKeyDown(KeyCode.P))
+        else if (OpenAction[source].stateDown && LetterAnimator.GetBool("Open") == true)
         {
-            Close();
+            LetterAnimator.SetBool("Close", true);
         }
     }
 
     public void Open()
     {
-        for (int i = 0; i < BrokenStamp.Length; i++)
+        if (canOpen)
         {
-            BrokenStamp[i].SetActive(true);
+            for (int i = 0; i < BrokenStamp.Length; i++)
+            {
+                BrokenStamp[i].SetActive(true);
+            }
+            Destroy(NormalStamp);
+            LetterAnimator.SetBool("Open", true);
         }
-        Destroy(NormalStamp);
-        LetterAnimator.SetBool("Open", true);
     }
 
     public void Close()
     {
-        LetterAnimator.SetBool("Close", true);
+        if (canOpen)
+        {
+            LetterAnimator.SetBool("Close", true);
+            canOpen = false;
+        }
     }
 }
