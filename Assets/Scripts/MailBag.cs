@@ -6,7 +6,6 @@ using TMPro;
 public class MailBag : MonoBehaviour
 {
     [SerializeField] private SetupLetter setupLetter;
-    [SerializeField] private DayManager dayManager;
     [SerializeField] private Renderer envelope;
     [SerializeField] private Renderer top_envel;
     [SerializeField] private TMP_Text[] info;
@@ -15,6 +14,7 @@ public class MailBag : MonoBehaviour
     [SerializeField] private GameObject fire;
     [SerializeField] private float speed = 1f;
     [SerializeField] private bool burning = false;
+    [HideInInspector] public DayManager dayManager;
 
     private Letter _letter;
     public Letter letter
@@ -63,7 +63,7 @@ public class MailBag : MonoBehaviour
     {
         if (other.tag == "Fire")
         {
-            //dayManager.letterPass(letter, false, true);
+            dayManager.letterPass(letter, false, true);
             mat.color = Color.white;
             transMat.color = Color.white;
             envelope.material = mat;
