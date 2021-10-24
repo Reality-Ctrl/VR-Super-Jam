@@ -11,7 +11,7 @@ public class Stamp : MonoBehaviour
     [SerializeField] private float heatSpeed = 0.005f;
     [SerializeField] private float coolingSpeed = 0.005f;
     [SerializeField] private MeshRenderer renderer;
-    private readonly Color32 maxHeatColor = new Color32(89, 8, 8, 255);
+    [SerializeField] private Color32 maxHeatColor = new Color32(89, 8, 8, 255);
     private readonly Color32 standartColor = new Color32(0,0,0,255);
     
 
