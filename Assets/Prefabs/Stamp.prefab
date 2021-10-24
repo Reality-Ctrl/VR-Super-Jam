@@ -188,7 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffefbea063cab884ca33e5a449e5c22c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attachmentFlags: 13
+  attachmentFlags: 109
   attachmentOffset: {fileID: 0}
   catchingSpeedThreshold: -1
   releaseVelocityStyle: 2
@@ -243,10 +243,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   borderTagChange: 0.4
-  metalPart: {fileID: 1943443212}
   heatSpeed: 0.002
   coolingSpeed: 0.001
   renderer: {fileID: 7047206464462302834}
+  maxHeatColor:
+    serializedVersion: 2
+    rgba: 4278716505
 --- !u!1 &7047206464462302838
 GameObject:
   m_ObjectHideFlags: 0

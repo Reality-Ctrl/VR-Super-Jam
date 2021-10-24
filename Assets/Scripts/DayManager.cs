@@ -14,6 +14,11 @@ public class DayManager : MonoBehaviour
     public LetterMachine letterMachine;
     [SerializeField] private NewsDesk newsDesk;
     [SerializeField] private GameObject mailBagPrefab;
+
+    private void Start()
+    {
+        SpawnNextLetter();
+    }
     
     public void letterPass(Letter letter, bool withNews = false, bool removeHistoryLine = false)
     {
@@ -39,10 +44,23 @@ public class DayManager : MonoBehaviour
 
     public void StopDay()
     {
-        if (currLetterPass == letters.Count)
+        if (CanStopDay())
         {
             //Stop
+
+
+
+
         }
+        else
+        {
+            Debug.LogError("Cat't stop day with leters on map");
+        }
+    }
+
+    public bool CanStopDay()
+    {
+        return currLetterPass == letters.Count;
     }
 
     private void SpawnNextLetter()
@@ -50,7 +68,7 @@ public class DayManager : MonoBehaviour
         if (letters.Count != 0 && currLetterPass < letters.Count)
         {
             SpawnLetter((Letter)letters[currLetterPass]);
-        } //else next day
+        } //else next day (nope)
     }
 
 
