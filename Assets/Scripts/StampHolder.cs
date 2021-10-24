@@ -15,14 +15,17 @@ public class StampHolder : MonoBehaviour
 
     private void Update()
     {
-        SteamVR_Input_Sources source = interactable.attachedToHand.handType;
-        if (OpenAction[source].stateDown && LetterAnimator.GetBool("Open") == false)
+        if (interactable.attachedToHand != null)
         {
-            LetterAnimator.SetBool("Open", true);
-        }
-        else if (OpenAction[source].stateDown && LetterAnimator.GetBool("Open") == true)
-        {
-            LetterAnimator.SetBool("Close", true);
+            SteamVR_Input_Sources source = interactable.attachedToHand.handType;
+            if (OpenAction[source].stateDown && LetterAnimator.GetBool("Open") == false)
+            {
+                LetterAnimator.SetBool("Open", true);
+            }
+            else if (OpenAction[source].stateDown && LetterAnimator.GetBool("Open") == true)
+            {
+                LetterAnimator.SetBool("Close", true);
+            }
         }
     }
 
