@@ -45,6 +45,7 @@ public class DayManager : MonoBehaviour
 
     public void StopDay()
     {
+        Debug.Log("Ask to stop day");
         if (CanStopDay())
         {
             //Stop

@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 
@@ -35,17 +34,19 @@ public class ExitScript : MonoBehaviour
                 exitNotificationPlate.DrawNotification(tryAggainNotify);
                 exitNotificationPlate.ShowPlate();
                 cancellationToken = new CancellationTokenSource();
-                StartCoroutine(Timer());
+                door.Open();
+                StartCoroutine(CloseDoorTimer());
             }
         }
         else
         {
             exitNotificationPlate.DrawNotification(cantExitNotify);
             exitNotificationPlate.ShowPlate();
+            StartCoroutine(NotifyLiveTimer());
         }
     }
 
-    public IEnumerator Timer()
+    public IEnumerator CloseDoorTimer()
     {
         int remaningTime = timerSec;
         while (true)
@@ -59,6 +60,21 @@ public class ExitScript : MonoBehaviour
             if (remaningTime-- < 0)
             {
                 door.Close();
+                exitNotificationPlate.HidePlate();
+                yield break;
+            }
+
+            yield return new WaitForSeconds(1);
+        }
+    }
+    
+    public IEnumerator NotifyLiveTimer()
+    {
+        int remaningTime = timerSec;
+        while (true)
+        {
+            if (remaningTime-- < 0)
+            {
                 exitNotificationPlate.HidePlate();
                 yield break;
             }
