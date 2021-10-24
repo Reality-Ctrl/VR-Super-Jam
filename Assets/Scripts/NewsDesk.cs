@@ -12,10 +12,9 @@ public class NewsDesk : MonoBehaviour
     public void AddNewsOnNextDay(string news)
     {
         this.news.Push(news);
-        AddNewsToDesk(news);
     }
 
-    void AddNewsToDesk(string news)
+    public void AddNewsToDesk(string news)
     {
         news_desc.text += "\n" + news;
     }
