@@ -424,10 +424,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Surguch
       objectReference: {fileID: 0}
-    - target: {fileID: 6407577854142076859, guid: 4366e53dbae9f71468db0029df4fe2f4, type: 3}
-      propertyPath: m_IsKinematic
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6407577854142076868, guid: 4366e53dbae9f71468db0029df4fe2f4, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -470,10 +466,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6407577854142076868, guid: 4366e53dbae9f71468db0029df4fe2f4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6407577855055874125, guid: 4366e53dbae9f71468db0029df4fe2f4, type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
