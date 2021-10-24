@@ -6,7 +6,7 @@ using UnityEngine;
 public class DayManager : MonoBehaviour
 {
     [Header("Settings")] 
-    [SerializeField] private Vector3 spawnPosition;
+    [SerializeField] private Transform spawnPosition;
     [SerializeField] private int lettersPerDay = 3;
     private int currLetterPass = 0;
     private List<Letter?> letters;
@@ -17,7 +17,7 @@ public class DayManager : MonoBehaviour
 
     private void Start()
     {
-        SpawnNextLetter();
+        StartNewDay();
     }
     
     public void letterPass(Letter letter, bool withNews = false, bool removeHistoryLine = false)
@@ -40,6 +40,7 @@ public class DayManager : MonoBehaviour
     {
         currLetterPass = 0;
         letters = letterMachine.GetListLetters(lettersPerDay);
+        SpawnNextLetter();
     }
 
     public void StopDay()
@@ -74,7 +75,7 @@ public class DayManager : MonoBehaviour
 
     private void SpawnLetter(Letter letter)
     {
-        GameObject mailBagObj = Instantiate(mailBagPrefab, spawnPosition, Quaternion.identity);
+        GameObject mailBagObj = Instantiate(mailBagPrefab, spawnPosition.position, Quaternion.identity);
         MailBag mailBag = mailBagObj.GetComponent<MailBag>();
         mailBag.letter = letter;
     }
