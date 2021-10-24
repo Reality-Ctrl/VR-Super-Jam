@@ -25234,7 +25234,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   setupLetter: {fileID: 2790943460702183883}
-  dayManager: {fileID: 0}
   envelope: {fileID: 5260048608319707756}
   top_envel: {fileID: 535075173280221479}
   info:
@@ -25247,6 +25246,7 @@ MonoBehaviour:
   fire: {fileID: 1725317217088050}
   speed: 0.05
   burning: 0
+  dayManager: {fileID: 0}
 --- !u!95 &6293682827203472351
 Animator:
   serializedVersion: 3
@@ -26251,7 +26251,7 @@ MonoBehaviour:
   - {fileID: 7929049902948034005}
   LetterAnimator: {fileID: 6293682827203472351}
   OpenAction:
-    actionPath: /actions/default/in/GrabGrip
+    actionPath: /actions/default/in/InteractUI
     needsReinit: 0
   interactable: {fileID: 453686566852289627}
   source: {fileID: 4693790880378143627}

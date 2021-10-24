@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using LetterSystem;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DayManager : MonoBehaviour
 {
@@ -15,9 +16,16 @@ public class DayManager : MonoBehaviour
     [SerializeField] private NewsDesk newsDesk;
     [SerializeField] private GameObject mailBagPrefab;
 
+    public UnityEvent onNewDayStart = new UnityEvent();
+
+    private void Awake()
+    {
+        onNewDayStart.AddListener(() => StartNewDay());
+    }
+
     private void Start()
     {
-        StartNewDay();
+        onNewDayStart.Invoke();
     }
     
     public void letterPass(Letter letter, bool withNews = false, bool removeHistoryLine = false)
@@ -79,5 +87,6 @@ public class DayManager : MonoBehaviour
         GameObject mailBagObj = Instantiate(mailBagPrefab, spawnPosition.position, Quaternion.identity);
         MailBag mailBag = mailBagObj.GetComponent<MailBag>();
         mailBag.letter = letter;
+        mailBag.dayManager = this;
     }
 }
