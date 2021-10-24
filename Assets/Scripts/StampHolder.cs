@@ -11,6 +11,8 @@ public class StampHolder : MonoBehaviour
     [SerializeField] Animator LetterAnimator;
     [SerializeField] SteamVR_Action_Boolean OpenAction;
     [SerializeField] Interactable interactable;
+    [SerializeField] AudioSource source;
+    [SerializeField] AudioClip destroyClip;
     [SerializeField] bool canOpen = true;
 
     private void Update()
@@ -33,6 +35,7 @@ public class StampHolder : MonoBehaviour
     {
         if (canOpen)
         {
+            source.PlayOneShot(destroyClip, 1f);
             for (int i = 0; i < BrokenStamp.Length; i++)
             {
                 BrokenStamp[i].SetActive(true);

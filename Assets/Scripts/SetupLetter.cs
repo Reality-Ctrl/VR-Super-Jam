@@ -28,7 +28,7 @@ public class SetupLetter : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.layer != 3)
+        if (collision.gameObject.layer != 3 && collision.gameObject.tag != "BrokenStamp")
         {
             source.PlayOneShot(collisionClip[Random.Range(0, collisionClip.Length - 1)], 1f);
         }

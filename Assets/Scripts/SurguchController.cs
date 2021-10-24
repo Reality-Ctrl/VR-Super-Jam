@@ -7,6 +7,9 @@ public class SurguchController : MonoBehaviour
     [SerializeField] Rigidbody Rigidbody;
     [SerializeField] GameObject NormalState;
     [SerializeField] GameObject SecondState;
+    [SerializeField] AudioSource source;
+    [SerializeField] AudioClip heading;
+    [SerializeField] float volume = 1f;
     bool can = true;
 
     public void ChangeState(GameObject parent)
@@ -24,6 +27,7 @@ public class SurguchController : MonoBehaviour
     public void Deformate()
     {
         NormalState.SetActive(false);
+        source.PlayOneShot(heading, volume);
         SecondState.SetActive(true);
     }
 

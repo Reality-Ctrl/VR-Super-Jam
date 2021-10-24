@@ -12,6 +12,7 @@ TagManager:
   - FxTemporaire
   - Fire
   - HeatedStamp
+  - BrokenStamp
   layers:
   - Default
   - TransparentFX
