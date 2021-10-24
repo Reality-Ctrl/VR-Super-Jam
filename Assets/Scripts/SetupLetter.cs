@@ -10,6 +10,8 @@ public class SetupLetter : MonoBehaviour
     [SerializeField] TMP_Text LetterRecipient;
     [SerializeField] TMP_Text StoryTitle;
     [SerializeField] TMP_Text LetterText;
+    [SerializeField] AudioSource source;
+    [SerializeField] AudioClip[] collisionClip;
 
     private void Start()
     {
@@ -22,5 +24,13 @@ public class SetupLetter : MonoBehaviour
         LetterRecipient.text = recipient;
         StoryTitle.text = story_title;
         LetterText.text = story_text;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.layer != 3)
+        {
+            source.PlayOneShot(collisionClip[Random.Range(0, collisionClip.Length - 1)], 1f);
+        }
     }
 }
