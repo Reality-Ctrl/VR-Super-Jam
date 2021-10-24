@@ -6,7 +6,7 @@ using UnityEngine;
 public class DayManager : MonoBehaviour
 {
     [Header("Settings")] 
-    [SerializeField] private Vector3 spawnPosition;
+    [SerializeField] private Transform spawnPosition;
     [SerializeField] private int lettersPerDay = 3;
     private int currLetterPass = 0;
     private List<Letter?> letters;
@@ -14,6 +14,11 @@ public class DayManager : MonoBehaviour
     public LetterMachine letterMachine;
     [SerializeField] private NewsDesk newsDesk;
     [SerializeField] private GameObject mailBagPrefab;
+
+    private void Start()
+    {
+        StartNewDay();
+    }
     
     public void letterPass(Letter letter, bool withNews = false, bool removeHistoryLine = false)
     {
@@ -35,14 +40,29 @@ public class DayManager : MonoBehaviour
     {
         currLetterPass = 0;
         letters = letterMachine.GetListLetters(lettersPerDay);
+        SpawnNextLetter();
     }
 
     public void StopDay()
     {
-        if (currLetterPass == letters.Count)
+        Debug.Log("Ask to stop day");
+        if (CanStopDay())
         {
             //Stop
+
+
+
+
         }
+        else
+        {
+            Debug.LogError("Cat't stop day with leters on map");
+        }
+    }
+
+    public bool CanStopDay()
+    {
+        return currLetterPass == letters.Count;
     }
 
     private void SpawnNextLetter()
@@ -50,13 +70,13 @@ public class DayManager : MonoBehaviour
         if (letters.Count != 0 && currLetterPass < letters.Count)
         {
             SpawnLetter((Letter)letters[currLetterPass]);
-        } //else next day
+        } //else next day (nope)
     }
 
 
     private void SpawnLetter(Letter letter)
     {
-        GameObject mailBagObj = Instantiate(mailBagPrefab, spawnPosition, Quaternion.identity);
+        GameObject mailBagObj = Instantiate(mailBagPrefab, spawnPosition.position, Quaternion.identity);
         MailBag mailBag = mailBagObj.GetComponent<MailBag>();
         mailBag.letter = letter;
     }
