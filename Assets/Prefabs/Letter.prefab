@@ -25144,7 +25144,6 @@ GameObject:
   - component: {fileID: 453686566852289627}
   - component: {fileID: 11766696227282379}
   - component: {fileID: 4693790880378143627}
-  - component: {fileID: 4481582734645700235}
   m_Layer: 0
   m_Name: Letter
   m_TagString: Letter
@@ -25469,33 +25468,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &4481582734645700235
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2790943460702183882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7418c7dd8f977d4e969202d3fa7e926, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  poseEditorExpanded: 1
-  blendEditorExpanded: 1
-  poseNames:
-  - MailBagCatchPose (MAIN)
-  overridePreviewLeftHandPrefab: {fileID: 1000013348574242, guid: 638779290bce1af49b356f33dcc6fccf, type: 3}
-  overridePreviewRightHandPrefab: {fileID: 1000010304998954, guid: 6def53d002137b747aec0b29551e0e25, type: 3}
-  skeletonMainPose: {fileID: 11400000, guid: 9349f50d5c1b709459718592555b58f9, type: 2}
-  skeletonAdditionalPoses: []
-  showLeftPreview: 0
-  showRightPreview: 0
-  previewLeftInstance: {fileID: 0}
-  previewRightInstance: {fileID: 0}
-  previewPoseSelection: 0
-  blendingBehaviours: []
-  scale: 1
 --- !u!1 &2884649163978862539
 GameObject:
   m_ObjectHideFlags: 0
@@ -25990,7 +25962,7 @@ BoxCollider:
   m_GameObject: {fileID: 7527975382750875934}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -26099,7 +26071,7 @@ BoxCollider:
   m_GameObject: {fileID: 7881487603098159556}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -26284,6 +26256,8 @@ MonoBehaviour:
   interactable: {fileID: 453686566852289627}
   source: {fileID: 4693790880378143627}
   destroyClip: {fileID: 8300000, guid: 1d625ff42ac599d4fbd2617e4d9fc970, type: 3}
+  leftCollider: {fileID: 7527975382750875921}
+  rightCollider: {fileID: 7443233636314481224}
   canOpen: 1
 --- !u!1 &8207483587786478228
 GameObject:

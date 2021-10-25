@@ -13,6 +13,8 @@ public class StampHolder : MonoBehaviour
     [SerializeField] Interactable interactable;
     [SerializeField] AudioSource source;
     [SerializeField] AudioClip destroyClip;
+    [SerializeField] Collider leftCollider;
+    [SerializeField] Collider rightCollider;
     [SerializeField] bool canOpen = true;
 
     private void Update()
@@ -57,6 +59,8 @@ public class StampHolder : MonoBehaviour
     {
         if (canOpen)
         {
+            leftCollider.enabled = true;
+            rightCollider.enabled = true;
             LetterAnimator.SetBool("Close", true);
             canOpen = false;
         }
