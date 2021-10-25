@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR;
+using Valve.VR.InteractionSystem;
 
 public class SurguchController : MonoBehaviour
 {
@@ -9,8 +11,9 @@ public class SurguchController : MonoBehaviour
     [SerializeField] GameObject SecondState;
     [SerializeField] AudioSource source;
     [SerializeField] AudioClip heading;
+    [SerializeField] Collider boxCollider;
     [SerializeField] float volume = 1f;
-    bool can = true;
+    bool can = false;
 
     public void ChangeState(GameObject parent)
     {
@@ -26,6 +29,7 @@ public class SurguchController : MonoBehaviour
 
     public void Deformate()
     {
+        boxCollider.enabled = false;
         NormalState.SetActive(false);
         source.PlayOneShot(heading, volume);
         SecondState.SetActive(true);
@@ -38,5 +42,11 @@ public class SurguchController : MonoBehaviour
         {
             Deformate();
         }
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        Debug.Log(other.tag);
+        can = true;
     }
 }
