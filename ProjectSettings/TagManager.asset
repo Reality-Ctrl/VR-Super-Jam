@@ -3,15 +3,25 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Letter
+  - Surguch
+  - Wood
+  - Stamp
+  - projectile
+  - FxTemporaire
+  - Fire
+  - HeatedStamp
+  - BrokenStamp
+  - Mis04ka
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
+  - RightWall
   - 
   - 
   - 
