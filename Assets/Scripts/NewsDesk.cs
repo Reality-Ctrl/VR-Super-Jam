@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
 using UnityEngine;
 
 [RequireComponent(typeof(ShowNews))]
@@ -18,6 +16,7 @@ public class NewsDesk : MonoBehaviour
 
     public void AddNewsOnNextDay(string news)
     {
+        if(news == string.Empty) return;
         this.news.Push(news);
     }
 
@@ -26,7 +25,6 @@ public class NewsDesk : MonoBehaviour
         showNews.ClearDesk();
         while (news.Count > 0)
         {
-            //showNews.AddNewsToDesk(news.Pop());
             showNews.AddNewsToDeskRandom(news.Pop());
         }
     }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using LetterSystem;
@@ -27,17 +28,35 @@ public class DayManager : MonoBehaviour
     {
         onNewDayStart.Invoke();
     }
-    
-    public void letterPass(Letter letter, bool withNews = false, bool removeHistoryLine = false)
+
+    public void letterPass(Letter letter, bool removeHistoryLine = false, PassType passType = PassType.Right)
     {
-        if (withNews)
+        try
         {
-            newsDesk.AddNewsOnNextDay(letter.news);
+            string[] newStrings = letter.news.Split('#');
+
+            if (passType == PassType.Right)
+            {
+                newsDesk.AddNewsOnNextDay(newStrings[0]);
+            }
+            else if (passType == PassType.RightButNotRightRecipient)
+            {
+                newsDesk.AddNewsOnNextDay(newStrings[1]);
+            }
+            else if (passType == PassType.Wrong)
+            {
+                newsDesk.AddNewsOnNextDay(newStrings[2]);
+            }
         }
+        catch (Exception e)
+        {
+            Debug.LogError(e.Message);
+        }
+
 
         if (removeHistoryLine)
         {
-            letterMachine.RemoveThemeOfLetters(letter.title);
+            RemoveHistoryLine(letter.title);
         }
 
         ++currLetterPass;
@@ -85,4 +104,16 @@ public class DayManager : MonoBehaviour
         mailBag.letter = letter;
         mailBag.dayManager = this;
     }
+
+    private void RemoveHistoryLine(string historyTheme)
+    {
+        letterMachine.RemoveThemeOfLetters(historyTheme);
+    }
+}
+
+public enum PassType
+{
+    Right,
+    RightButNotRightRecipient,
+    Wrong
 }

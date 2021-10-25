@@ -1,15 +1,31 @@
 {
     "histories": [
         {
-            "theme": "About Amogus",
+            "theme": "Opposites",
             "letters": [
                 {
-                    "title": "About Amogus",
-                    "from": "AbabaLand",
-                    "recipient": "BadAboba",
-                    "RightButNotRightRecipient": "Aboba",
-                    "text": "Aboba Aboba Aboba Aboba Aboba Aboba",
-                    "news": "its not bad aboba !!11"
+                    "title": "Opposites",
+                    "from": "Calmwind",
+                    "recipient": "Helm's High",
+                    "RightButNotRightRecipient": "",
+                    "text": "Dear Romiet, I fell in love with you at first sight. Now I can't think of anything but you. Please tell me if my feelings are mutual or I can't stand it.",
+                    "news": "##News: The young son is at home Caputague killed himself because of non-reciprocal love..."
+                },
+                {
+                    "title": "Opposites",
+                    "from": "Helm's High",
+                    "recipient": "Calmwind",
+                    "RightButNotRightRecipient": "",
+                    "text": "Dear Julieo, I feel the same way about you. But our families won't let us be together and that makes me despair. We should keep our feelings in secret for our safe.",
+                    "news": "##News: The young son is at home Caputague killed himself because of non-reciprocal love..."
+                },
+                {
+                    "title": "Opposites",
+                    "from": "Calmwind",
+                    "recipient": "Helm's High",
+                    "RightButNotRightRecipient": "",
+                    "text": "Dear Romiet, there will be a big ball soon, where both our families will be. We can run away together while everyone is busy and live happily together. Let's meet before the ball in our secret place.",
+                    "news": "News:a terrible thing happened: two families Caputague and Montaulet attacked each other right at the big ball. The reason was the disappearance of their children - Romer and Julieo##Two warring families Caputague and Montaulet reconciled at a big ball after seeing the feelings between their children - Romiet and Julieo"
                 }
             ]
         }
