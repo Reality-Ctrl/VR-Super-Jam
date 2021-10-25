@@ -63,7 +63,7 @@ public class MailBag : MonoBehaviour
     {
         if (other.tag == "Fire")
         {
-            dayManager.letterPass(letter, false, true);
+            dayManager.letterPass(letter, true, PassType.Wrong);
             mat.color = Color.white;
             transMat.color = Color.white;
             envelope.material = mat;

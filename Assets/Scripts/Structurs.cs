@@ -30,15 +30,15 @@ namespace LetterSystem
             {
                 Letter result = letters[currentLetterIndex];
 
-                if (currentLetterIndex == letters.Count - 1) //Last Letter
+                if (currentLetterIndex >= letters.Count - 1) //Last Letter
                 {
                     result.isLastLetter = true;
                 }
                 else
                 {
                     result.isLastLetter = false;
-                    currentLetterIndex++;
                 }
+                currentLetterIndex++;
                 return result;
             }
 

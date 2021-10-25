@@ -35,29 +35,15 @@ public class SenderTrigger : MonoBehaviour
     {
         if (passType == PassType.Right)
         {
-            if (letter.isLastLetter)
-            {
-                dayManager.letterPass(letter, true);
-            }
-            else
-            {
-                dayManager.letterPass(letter);
-            }
+            dayManager.letterPass(letter);
         }
         else if(passType == PassType.RightButNotRightRecipient)
         {
-            dayManager.letterPass(letter, true);
+            dayManager.letterPass(letter, true, PassType.RightButNotRightRecipient);
         }
         else if(passType == PassType.Wrong)
         {
-            dayManager.letterPass(letter);
+            dayManager.letterPass(letter, true, PassType.Wrong);
         }
-    }
-
-    public enum PassType
-    {
-        Right,
-        RightButNotRightRecipient,
-        Wrong
     }
 }
