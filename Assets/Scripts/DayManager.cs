@@ -56,11 +56,7 @@ public class DayManager : MonoBehaviour
         Debug.Log("Ask to stop day");
         if (CanStopDay())
         {
-            //Stop
-
-
-
-
+            onNewDayStart.Invoke();
         }
         else
         {

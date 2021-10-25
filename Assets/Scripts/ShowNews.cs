@@ -45,6 +45,7 @@ public class ShowNews : MonoBehaviour
                 if (news_places[index].GetCurrText() == String.Empty)
                 {
                     news_places[index].Show(news);
+                    break;
                 }
             }
         }
