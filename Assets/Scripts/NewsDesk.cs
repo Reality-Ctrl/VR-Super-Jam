@@ -26,7 +26,8 @@ public class NewsDesk : MonoBehaviour
         showNews.ClearDesk();
         while (news.Count > 0)
         {
-            showNews.AddNewsToDesk(news.Pop());
+            //showNews.AddNewsToDesk(news.Pop());
+            showNews.AddNewsToDeskRandom(news.Pop());
         }
     }
 }

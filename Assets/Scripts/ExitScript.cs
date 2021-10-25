@@ -27,6 +27,7 @@ public class ExitScript : MonoBehaviour
             if (door.isDoorOpen()) //Дверь уже приоткрыта, человек соглашается выйти на ружу.
             {
                 cancellationToken.Cancel();
+                exitNotificationPlate.HidePlate();
                 dayManager.StopDay();
             }
             else //Дверь ещё закрыта, нужно нажать что бы увидть уведомление о выходе. 
