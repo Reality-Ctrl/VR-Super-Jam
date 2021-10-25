@@ -411,7 +411,7 @@ Material:
     - _AnisoTangentMapUV: 0
     - _AnisoUseTangentMap: 0
     - _AnisoUseTangentMap1: 0
-    - _AttenuationMultiplier: 0.133
+    - _AttenuationMultiplier: 1
     - _AudioLinkAddEmission1Band: 0
     - _AudioLinkAddEmissionBand: 0
     - _AudioLinkAnimToggle: 1

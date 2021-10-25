@@ -429,7 +429,7 @@ Material:
     - _AnisoTangentMapUV: 0
     - _AnisoUseTangentMap: 0
     - _AnisoUseTangentMap1: 0
-    - _AttenuationMultiplier: 0
+    - _AttenuationMultiplier: 0.75
     - _AudioLinkAddEmission1Band: 0
     - _AudioLinkAddEmissionBand: 0
     - _AudioLinkAnimToggle: 1
@@ -778,7 +778,7 @@ Material:
     - _LightingIndirectColorMode: 0
     - _LightingMinLightBrightness: 0
     - _LightingMinShadowBrightnessRatio: 0
-    - _LightingMode: 4
+    - _LightingMode: 1
     - _LightingMonochromatic: 0
     - _LightingOnlyUnityShadows: 0
     - _LightingRampType: 0
@@ -1155,7 +1155,7 @@ Material:
     - m_end_subsurface: 0
     - m_end_vertexManipulation: 0
     - m_end_voronoiRandom: 0
-    - m_lightingOptions: 0
+    - m_lightingOptions: 1
     - m_mainOptions: 1
     - m_outlineOptions: 1
     - m_renderingOptions: 1
@@ -1186,7 +1186,7 @@ Material:
     - m_start_GrabPass: 0
     - m_start_Hologram: 0
     - m_start_Iridescence: 0
-    - m_start_Lighting: 0
+    - m_start_Lighting: 1
     - m_start_MainHueShift: 0
     - m_start_MainVertexColors: 0
     - m_start_Matcap2: 0

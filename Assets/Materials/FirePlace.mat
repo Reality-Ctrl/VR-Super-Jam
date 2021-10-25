@@ -13,8 +13,9 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
+  m_CustomRenderQueue: 2000
+  stringTagMap:
+    RenderType: Opaque
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -427,7 +428,7 @@ Material:
     - _AnisoTangentMapUV: 0
     - _AnisoUseTangentMap: 0
     - _AnisoUseTangentMap1: 0
-    - _AttenuationMultiplier: 0.75
+    - _AttenuationMultiplier: 1
     - _AudioLinkAddEmission1Band: 0
     - _AudioLinkAddEmissionBand: 0
     - _AudioLinkAnimToggle: 1
@@ -513,7 +514,7 @@ Material:
     - _ColorMask: 15
     - _ContinuousDissolve: 0
     - _Cull: 2
-    - _Cutoff: 0.5
+    - _Cutoff: 0
     - _DebugCameraData: 0
     - _DebugEnabled: 0
     - _DebugLightingData: 0
@@ -749,7 +750,7 @@ Material:
     - _GlitterTextureRotation: 0
     - _GlitterUseSurfaceColor: 0
     - _GlossMapScale: 1
-    - _Glossiness: 0.5
+    - _Glossiness: 0
     - _GlossyReflections: 1
     - _IgnoreFog: 0
     - _Inverse_Clipping: 0
@@ -766,7 +767,7 @@ Material:
     - _LightingDetailShadowsEnabled: 0
     - _LightingDetailShadowsUV: 0
     - _LightingDetailStrength: 1
-    - _LightingDirectColorMode: 0
+    - _LightingDirectColorMode: 1
     - _LightingEnableAO: 0
     - _LightingEnableHSL: 0
     - _LightingGradientEnd: 0.5
@@ -785,7 +786,7 @@ Material:
     - _LightingShadowMaskUV: 0
     - _LightingShadowSaturation: 0.5
     - _LightingStandardSmoothness: 0
-    - _LightingUncapped: 0
+    - _LightingUncapped: 1
     - _LightingWrappedNormalization: 0
     - _LightingWrappedWrap: 0
     - _LineWidth: 1
@@ -1154,7 +1155,7 @@ Material:
     - m_end_vertexManipulation: 0
     - m_end_voronoiRandom: 0
     - m_lightingOptions: 1
-    - m_mainOptions: 0
+    - m_mainOptions: 1
     - m_outlineOptions: 0
     - m_renderingOptions: 0
     - m_start_Alpha: 0
@@ -1239,7 +1240,7 @@ Material:
     - m_start_glowInDarkEmissionOptions1: 0
     - m_start_lightingAdvanced: 0
     - m_start_lightingHSL: 0
-    - m_start_lightingModifiers: 0
+    - m_start_lightingModifiers: 1
     - m_start_manualFlipbookControl: 0
     - m_start_matcap: 0
     - m_start_matcap2HueShift: 0
