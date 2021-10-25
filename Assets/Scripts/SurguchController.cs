@@ -13,7 +13,8 @@ public class SurguchController : MonoBehaviour
     [SerializeField] AudioClip heading;
     [SerializeField] Collider boxCollider;
     [SerializeField] float volume = 1f;
-    bool can = false;
+    bool can = true;
+    bool inBox = true;
 
     public void ChangeState(GameObject parent)
     {
@@ -40,13 +41,16 @@ public class SurguchController : MonoBehaviour
         Debug.Log(collision.gameObject.tag);
         if (collision.gameObject.tag == "HeatedStamp")
         {
-            Deformate();
+            if (inBox == false)
+            {
+                Deformate();
+            }
         }
     }
 
     public void OnTriggerExit(Collider other)
     {
         Debug.Log(other.tag);
-        can = true;
+        inBox = false;
     }
 }
