@@ -23,11 +23,11 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         characterController.height = player.eyeHeight;
-        Vector3 direction = Player.instance.hmdTransform.TransformDirection(new Vector3(joystickInput.axis.x, 0, joystickInput.axis.y));
-        characterController.Move(Vector3.ProjectOnPlane(direction, Vector3.up) * speed);
-
         float distToFloor = Vector3.Dot(camera.localPosition, Vector3.up);
         characterController.center = camera.localPosition - 0.5f * distToFloor * Vector3.up;
+
+        Vector3 direction = Player.instance.hmdTransform.TransformDirection(new Vector3(joystickInput.axis.x, 0, joystickInput.axis.y));
+        characterController.Move(Vector3.ProjectOnPlane(direction, Vector3.up) * speed - new Vector3(0, 10, 0));
     }
 
     public void Spawn()
