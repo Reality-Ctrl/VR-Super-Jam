@@ -16,7 +16,7 @@ public class MailBag : MonoBehaviour
     [SerializeField] private bool burning = false;
     [HideInInspector] public DayManager dayManager;
 
-    private Letter _letter;
+    [SerializeField] private Letter _letter;
     public Letter letter
     {
         set
