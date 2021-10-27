@@ -7,9 +7,9 @@ using UnityEngine.Events;
 
 public class DayManager : MonoBehaviour
 {
-    [Header("Settings")] 
-    [SerializeField] private Transform spawnPosition;
+    [Header("Settings")] [SerializeField] private Transform spawnPosition;
     [SerializeField] private int lettersPerDay = 3;
+    [SerializeField] private float spawnDelay = 10;
     private int currLetterPass = 0;
     private List<Letter?> letters;
 
@@ -58,16 +58,13 @@ public class DayManager : MonoBehaviour
         {
             RemoveHistoryLine(letter.title);
         }
-
-        ++currLetterPass;
-        SpawnNextLetter();
+        currLetterPass++;
     }
 
     private void StartNewDay()
     {
-        currLetterPass = 0;
         letters = letterMachine.GetListLetters(lettersPerDay);
-        SpawnNextLetter();
+        StartCoroutine(SpawnLettersCoroutine());
     }
 
     public void StopDay()
@@ -88,15 +85,6 @@ public class DayManager : MonoBehaviour
         return currLetterPass == letters.Count;
     }
 
-    private void SpawnNextLetter()
-    {
-        if (letters.Count != 0 && currLetterPass < letters.Count)
-        {
-            SpawnLetter((Letter)letters[currLetterPass]);
-        } //else next day (nope)
-    }
-
-
     private void SpawnLetter(Letter letter)
     {
         GameObject mailBagObj = Instantiate(mailBagPrefab, spawnPosition.position, Quaternion.identity);
@@ -109,6 +97,17 @@ public class DayManager : MonoBehaviour
     {
         letterMachine.RemoveThemeOfLetters(historyTheme);
     }
+
+    private IEnumerator SpawnLettersCoroutine()
+    {
+        foreach (var letter in letters)
+        {
+            yield return new WaitForSeconds(spawnDelay);
+            SpawnLetter((Letter)letter);
+        }
+        yield break;
+    }
+
 }
 
 public enum PassType
