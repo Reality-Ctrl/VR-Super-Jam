@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using LetterSystem;
 using UnityEngine;
 using UnityEngine.Events;
+using Random = UnityEngine.Random;
 
 public class DayManager : MonoBehaviour
 {
     [Header("Settings")] [SerializeField] private Transform spawnPosition;
     [SerializeField] private int lettersPerDay = 3;
-    [SerializeField] private float spawnDelay = 10;
+    [SerializeField] private float maxSpawnDelay = 10;
     private int currLetterPass = 0;
     private List<Letter?> letters;
 
@@ -102,7 +103,7 @@ public class DayManager : MonoBehaviour
     {
         foreach (var letter in letters)
         {
-            yield return new WaitForSeconds(spawnDelay);
+            yield return new WaitForSeconds(Random.Range(1, maxSpawnDelay));
             SpawnLetter((Letter)letter);
         }
         yield break;
