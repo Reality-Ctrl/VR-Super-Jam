@@ -128,4 +128,11 @@ namespace LetterSystem
             return res;
         }
     }
+
+
+
+    internal interface IDetachable
+    {
+        public void Detach();
+    }
 }

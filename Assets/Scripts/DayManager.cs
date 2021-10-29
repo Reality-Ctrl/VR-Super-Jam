@@ -31,6 +31,7 @@ public class DayManager : MonoBehaviour
 
     public void letterPass(Letter letter, bool removeHistoryLine = false, PassType passType = PassType.Right)
     {
+        Debug.Log($"Letter pass: {letter.title}");
         try
         {
             string[] newStrings = letter.news.Split('#');

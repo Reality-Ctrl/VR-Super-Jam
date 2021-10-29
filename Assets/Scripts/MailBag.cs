@@ -1,9 +1,11 @@
+using System;
 using UnityEngine;
 using LetterSystem;
 using UnityEngine.Events;
 using TMPro;
+using Valve.VR.InteractionSystem;
 
-public class MailBag : MonoBehaviour
+public class MailBag : MonoBehaviour, IDetachable
 {
     [SerializeField] private SetupLetter setupLetter;
     [SerializeField] private Renderer envelope;
@@ -14,7 +16,11 @@ public class MailBag : MonoBehaviour
     [SerializeField] private GameObject fire;
     [SerializeField] private float speed = 1f;
     [SerializeField] private bool burning = false;
+    [SerializeField] private Throwable throwable;
+    [SerializeField] private Interactable interactable;
+    [SerializeField] private GameObject thisGameObject;
     [HideInInspector] public DayManager dayManager;
+
 
     private Letter _letter;
     public Letter letter
@@ -29,6 +35,13 @@ public class MailBag : MonoBehaviour
         {
             return _letter;
         }
+    }
+
+    private void Awake()
+    {
+        thisGameObject = this.gameObject;
+        throwable = this.GetComponent<Throwable>();
+        interactable = this.GetComponent<Interactable>();
     }
 
     private void FixedUpdate()
@@ -63,6 +76,7 @@ public class MailBag : MonoBehaviour
     {
         if (other.tag == "Fire")
         {
+            Detach();
             dayManager.letterPass(letter, true, PassType.Wrong);
             mat.color = Color.white;
             transMat.color = Color.white;
@@ -70,6 +84,16 @@ public class MailBag : MonoBehaviour
             top_envel.material = mat;
             fire.SetActive(true);
             burning = true;
+        }
+    }
+
+    public void Detach()
+    {
+        if (interactable.attachedToHand != null)
+        {
+            interactable.attachedToHand.DetachObject(thisGameObject);
+            Destroy(throwable);
+            interactable.enabled = false;
         }
     }
 }

@@ -27,7 +27,12 @@ public class SenderTrigger : MonoBehaviour
                 PassLetter(mailBag.letter, PassType.Wrong);
             }
 
-            Destroy(other.gameObject);
+            if (mailBag is IDetachable)
+            {
+                ((IDetachable) mailBag).Detach();
+            }
+
+            Destroy(other.gameObject); //Возможно тут будет анимация отлёта
         }
     }
 
