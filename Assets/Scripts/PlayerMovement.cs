@@ -1,4 +1,3 @@
-using System.Diagnostics.Contracts;
 using UnityEngine;
 using Valve.VR;
 using Valve.VR.InteractionSystem;
@@ -7,32 +6,41 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed = 0.1f;
     [SerializeField] private SteamVR_Action_Vector2 joystickInput;
+    [SerializeField] private SteamVR_Action_Boolean turnLeft;
+    [SerializeField] private SteamVR_Action_Boolean turnRight;
     [SerializeField] private Transform camera;
-    [SerializeField] private Player player;
+    [SerializeField] private RotationAngles rotationAngle = RotationAngles.Forty_five;
     private CharacterController characterController;
-    private Vector3 startPos;
-    private Quaternion startRot;
 
     private void Awake()
     {
         characterController = gameObject.GetComponent<CharacterController>();
-        startPos = this.transform.position;
-        startRot = this.transform.rotation;
+        float angle = (float) rotationAngle;
+        turnLeft.onStateUp += (action, source) => Rotate(-angle);
+        turnRight.onStateUp += (action, source) => Rotate(angle);
     }
 
     private void FixedUpdate()
     {
-        characterController.height = player.eyeHeight;
+        #region CharController
+        characterController.height = Player.instance.eyeHeight;
         float distToFloor = Vector3.Dot(camera.localPosition, Vector3.up);
         characterController.center = camera.localPosition - 0.5f * distToFloor * Vector3.up;
+        #endregion
 
         Vector3 direction = Player.instance.hmdTransform.TransformDirection(new Vector3(joystickInput.axis.x, 0, joystickInput.axis.y));
         characterController.Move(Vector3.ProjectOnPlane(direction, Vector3.up) * speed - new Vector3(0, 10, 0));
     }
 
-    public void Spawn()
+    private void Rotate(float angle)
     {
-        this.transform.position = startPos;
-        this.transform.rotation = startRot;
+        transform.Rotate(0, angle, 0);
     }
+}
+
+enum RotationAngles
+{
+    Thirty = 30,
+    Forty_five = 45,
+    Ninety = 90
 }
