@@ -6876,6 +6876,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4784800355024338950, guid: cb9ed6dffe80d214689b8ee41bd2b9de, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 411931070f72ea649a0adc2a69ff3747, type: 2}
     - target: {fileID: 6904547369808567752, guid: cb9ed6dffe80d214689b8ee41bd2b9de, type: 3}
       propertyPath: m_Name
       value: Conveyor

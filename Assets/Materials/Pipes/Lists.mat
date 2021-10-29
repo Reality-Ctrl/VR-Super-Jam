@@ -762,11 +762,11 @@ Material:
     - _LightingAdditiveLimitIntensity: 0
     - _LightingAdditiveMaxIntensity: 1
     - _LightingAdditivePassthrough: 0.5
-    - _LightingAdditiveType: 1
+    - _LightingAdditiveType: 2
     - _LightingDetailShadowsEnabled: 0
     - _LightingDetailShadowsUV: 0
     - _LightingDetailStrength: 1
-    - _LightingDirectColorMode: 0
+    - _LightingDirectColorMode: 1
     - _LightingEnableAO: 0
     - _LightingEnableHSL: 0
     - _LightingGradientEnd: 0.5
@@ -785,7 +785,7 @@ Material:
     - _LightingShadowMaskUV: 0
     - _LightingShadowSaturation: 0.5
     - _LightingStandardSmoothness: 0
-    - _LightingUncapped: 0
+    - _LightingUncapped: 1
     - _LightingWrappedNormalization: 0
     - _LightingWrappedWrap: 0
     - _LineWidth: 1
@@ -1237,9 +1237,9 @@ Material:
     - m_start_glitterRandom: 0
     - m_start_glowInDarkEmissionOptions: 0
     - m_start_glowInDarkEmissionOptions1: 0
-    - m_start_lightingAdvanced: 0
+    - m_start_lightingAdvanced: 1
     - m_start_lightingHSL: 0
-    - m_start_lightingModifiers: 0
+    - m_start_lightingModifiers: 1
     - m_start_manualFlipbookControl: 0
     - m_start_matcap: 0
     - m_start_matcap2HueShift: 0
