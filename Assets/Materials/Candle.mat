@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Candle
   m_Shader: {fileID: 4800000, guid: 917b37092bae034459c28c00a3a19b54, type: 3}
-  m_ShaderKeywords: VIGNETTE_MASKED _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+  m_ShaderKeywords: VIGNETTE_MASKED
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -497,7 +497,7 @@ Material:
     - _BlendOp: 0
     - _BlendOpAlpha: 0
     - _BumpMapUV: 0
-    - _BumpScale: 1
+    - _BumpScale: 0.78
     - _CameraAngleMax: 90
     - _CameraAngleMin: 45
     - _Clearcoat: 1
@@ -574,7 +574,7 @@ Material:
     - _DetailNormalMapUV: 0
     - _DetailTexIntensity: 1
     - _DetailTexUV: 0
-    - _DisableDirectionalInAdd: 1
+    - _DisableDirectionalInAdd: 0
     - _DissolveAlpha: 0
     - _DissolveAlpha0: 0
     - _DissolveAlpha1: 0
@@ -762,11 +762,11 @@ Material:
     - _LightingAdditiveLimitIntensity: 0
     - _LightingAdditiveMaxIntensity: 1
     - _LightingAdditivePassthrough: 0.5
-    - _LightingAdditiveType: 1
+    - _LightingAdditiveType: 2
     - _LightingDetailShadowsEnabled: 0
     - _LightingDetailShadowsUV: 0
     - _LightingDetailStrength: 1
-    - _LightingDirectColorMode: 0
+    - _LightingDirectColorMode: 1
     - _LightingEnableAO: 0
     - _LightingEnableHSL: 0
     - _LightingGradientEnd: 0.5
@@ -785,7 +785,7 @@ Material:
     - _LightingShadowMaskUV: 0
     - _LightingShadowSaturation: 0.5
     - _LightingStandardSmoothness: 0
-    - _LightingUncapped: 0
+    - _LightingUncapped: 1
     - _LightingWrappedNormalization: 0
     - _LightingWrappedWrap: 0
     - _LineWidth: 0.5
@@ -1237,9 +1237,9 @@ Material:
     - m_start_glitterRandom: 0
     - m_start_glowInDarkEmissionOptions: 0
     - m_start_glowInDarkEmissionOptions1: 0
-    - m_start_lightingAdvanced: 0
+    - m_start_lightingAdvanced: 1
     - m_start_lightingHSL: 0
-    - m_start_lightingModifiers: 0
+    - m_start_lightingModifiers: 1
     - m_start_manualFlipbookControl: 0
     - m_start_matcap: 0
     - m_start_matcap2HueShift: 0

@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Rope
   m_Shader: {fileID: 4800000, guid: 917b37092bae034459c28c00a3a19b54, type: 3}
-  m_ShaderKeywords: VIGNETTE_MASKED _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+  m_ShaderKeywords: VIGNETTE_MASKED
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -576,7 +576,7 @@ Material:
     - _DetailNormalMapUV: 0
     - _DetailTexIntensity: 1
     - _DetailTexUV: 0
-    - _DisableDirectionalInAdd: 1
+    - _DisableDirectionalInAdd: 0
     - _DissolveAlpha: 0
     - _DissolveAlpha0: 0
     - _DissolveAlpha1: 0
@@ -759,12 +759,12 @@ Material:
     - _LightingAOTexUV: 0
     - _LightingAdditiveDetailStrength: 1
     - _LightingAdditiveEnable: 1
-    - _LightingAdditiveGradientEnd: 0.5
+    - _LightingAdditiveGradientEnd: 0
     - _LightingAdditiveGradientStart: 0
     - _LightingAdditiveLimitIntensity: 0
     - _LightingAdditiveMaxIntensity: 1
     - _LightingAdditivePassthrough: 0.5
-    - _LightingAdditiveType: 1
+    - _LightingAdditiveType: 0
     - _LightingDetailShadowsEnabled: 0
     - _LightingDetailShadowsUV: 0
     - _LightingDetailStrength: 1
@@ -778,7 +778,7 @@ Material:
     - _LightingIndirectColorMode: 0
     - _LightingMinLightBrightness: 0
     - _LightingMinShadowBrightnessRatio: 0
-    - _LightingMode: 1
+    - _LightingMode: 2
     - _LightingMonochromatic: 0
     - _LightingOnlyUnityShadows: 0
     - _LightingRampType: 0
@@ -1239,9 +1239,9 @@ Material:
     - m_start_glitterRandom: 0
     - m_start_glowInDarkEmissionOptions: 0
     - m_start_glowInDarkEmissionOptions1: 0
-    - m_start_lightingAdvanced: 0
+    - m_start_lightingAdvanced: 1
     - m_start_lightingHSL: 0
-    - m_start_lightingModifiers: 0
+    - m_start_lightingModifiers: 1
     - m_start_manualFlipbookControl: 0
     - m_start_matcap: 0
     - m_start_matcap2HueShift: 0

@@ -65,6 +65,7 @@ public class DayManager : MonoBehaviour
 
     private void StartNewDay()
     {
+        currLetterPass = 0;
         letters = letterMachine.GetListLetters(lettersPerDay);
         StartCoroutine(SpawnLettersCoroutine());
     }

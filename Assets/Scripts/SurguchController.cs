@@ -12,7 +12,6 @@ public class SurguchController : MonoBehaviour
     [SerializeField] AudioSource source;
     [SerializeField] AudioClip heading;
     [SerializeField] Collider boxCollider;
-    [SerializeField] Throwable throwable;
     [SerializeField] float volume = 1f;
     bool can = true;
     bool inBox = true;
