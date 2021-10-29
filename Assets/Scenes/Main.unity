@@ -6768,6 +6768,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 860021352}
     m_Modifications:
+    - target: {fileID: 486714722, guid: cb9ed6dffe80d214689b8ee41bd2b9de, type: 3}
+      propertyPath: m_Size.y
+      value: 1.2108752
+      objectReference: {fileID: 0}
+    - target: {fileID: 486714722, guid: cb9ed6dffe80d214689b8ee41bd2b9de, type: 3}
+      propertyPath: m_Size.z
+      value: 1.4845312
+      objectReference: {fileID: 0}
+    - target: {fileID: 486714722, guid: cb9ed6dffe80d214689b8ee41bd2b9de, type: 3}
+      propertyPath: m_Center.y
+      value: -0.08811584
+      objectReference: {fileID: 0}
+    - target: {fileID: 486714722, guid: cb9ed6dffe80d214689b8ee41bd2b9de, type: 3}
+      propertyPath: m_Center.z
+      value: 0.0047499654
+      objectReference: {fileID: 0}
     - target: {fileID: 809273929543397962, guid: cb9ed6dffe80d214689b8ee41bd2b9de, type: 3}
       propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
       value: 0.92
