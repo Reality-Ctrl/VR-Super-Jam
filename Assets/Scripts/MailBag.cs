@@ -46,7 +46,7 @@ public class MailBag : MonoBehaviour, IDetachable
 
     private void FixedUpdate()
     {
-        if (burning == true) // В чужом глазу соринку видишь, а у себя во рту ХУЙ не увидел
+        if (burning is true)
         {
             if (mat.color.r > 0f)
             {
@@ -74,7 +74,7 @@ public class MailBag : MonoBehaviour, IDetachable
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Fire")
+        if (other.tag is "Fire")
         {
             Detach();
             dayManager.letterPass(letter, true, PassType.Wrong);

@@ -35,7 +35,7 @@ public class StampHolder : MonoBehaviour
 
     public void Open()
     {
-        if (canOpen)
+        if (canOpen is true) // я питонист, мне можно, пошел нахуй
         {
             source.PlayOneShot(destroyClip, 1f);
             for (int i = 0; i < BrokenStamp.Length; i++)
@@ -49,7 +49,7 @@ public class StampHolder : MonoBehaviour
 
     public void Close()
     {
-        if (canOpen)
+        if (canOpen is true)
         {
             leftCollider.enabled = true;
             rightCollider.enabled = true;

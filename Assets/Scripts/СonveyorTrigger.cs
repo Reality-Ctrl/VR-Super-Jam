@@ -7,7 +7,7 @@ public class СonveyorTrigger : MonoBehaviour
     [SerializeField] float speed = 2;
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Letter")
+        if (other.tag is "Letter")
         {
             other.gameObject.transform.position += Vector3.right * Time.deltaTime * speed;
         }

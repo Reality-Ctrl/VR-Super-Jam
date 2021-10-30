@@ -20,7 +20,7 @@ public class SurguchController : MonoBehaviour, IDetachable
 
     public void ChangeState(GameObject parent)
     {
-        if (can == true) //Это написал CLOWN на Дане
+        if (can)
         {
             Detach();
             Rigidbody.isKinematic = true;
@@ -59,7 +59,7 @@ public class SurguchController : MonoBehaviour, IDetachable
 
     public void Detach()
     {
-        if (!throwable.interactable.attachedToHand is null)
+        if (throwable.interactable.attachedToHand != null)
         {
             throwable.interactable.attachedToHand.DetachObject(this.gameObject);
             throwable.interactable.enabled = false;
