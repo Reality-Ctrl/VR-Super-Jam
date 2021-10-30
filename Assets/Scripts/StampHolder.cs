@@ -22,22 +22,14 @@ public class StampHolder : MonoBehaviour
         if (interactable.attachedToHand != null)
         {
             SteamVR_Input_Sources source = interactable.attachedToHand.handType;
-            if (OpenAction[source].stateDown && LetterAnimator.GetBool("Open") == false)
+            if (!OpenAction[source].stateDown && LetterAnimator.GetBool("Open"))
             {
                 Open();
             }
-            else if (OpenAction[source].stateDown && LetterAnimator.GetBool("Open") == true)
+            else if (OpenAction[source].stateDown && LetterAnimator.GetBool("Open"))
             {
                 Close();
             }
-        }
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            Open();
-        }
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            Close();
         }
     }
 

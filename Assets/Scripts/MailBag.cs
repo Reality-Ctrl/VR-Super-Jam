@@ -46,7 +46,7 @@ public class MailBag : MonoBehaviour, IDetachable
 
     private void FixedUpdate()
     {
-        if (burning == true)
+        if (burning == true) // В чужом глазу соринку видишь, а у себя во рту ХУЙ не увидел
         {
             if (mat.color.r > 0f)
             {

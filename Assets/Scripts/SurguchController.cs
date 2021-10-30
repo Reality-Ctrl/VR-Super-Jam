@@ -59,7 +59,7 @@ public class SurguchController : MonoBehaviour, IDetachable
 
     public void Detach()
     {
-        if (throwable.interactable.attachedToHand != null)
+        if (!throwable.interactable.attachedToHand is null)
         {
             throwable.interactable.attachedToHand.DetachObject(this.gameObject);
             throwable.interactable.enabled = false;
