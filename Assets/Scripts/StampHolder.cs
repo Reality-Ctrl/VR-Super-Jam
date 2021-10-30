@@ -6,6 +6,7 @@ using Valve.VR.InteractionSystem;
 
 public class StampHolder : MonoBehaviour
 {
+    [SerializeField] MailBag mailBag;
     [SerializeField] GameObject NormalStamp;
     [SerializeField] GameObject[] BrokenStamp;
     [SerializeField] Animator LetterAnimator;
@@ -15,7 +16,13 @@ public class StampHolder : MonoBehaviour
     [SerializeField] AudioClip destroyClip;
     [SerializeField] Collider leftCollider;
     [SerializeField] Collider rightCollider;
-    [SerializeField] bool canOpen = true;
+    [SerializeField] bool firstOpen = true;
+    public bool canOpen = true;
+
+    private void Start()
+    {
+        firstOpen = true;
+    }
 
     private void Update()
     {
@@ -30,12 +37,23 @@ public class StampHolder : MonoBehaviour
             {
                 Close();
             }
+            if (Input.GetKeyDown(KeyCode.O))
+            {
+                if (!LetterAnimator.GetBool("Open") is true)
+                {
+                    Open();
+                }
+                else
+                {
+                    Close();
+                }
+            }
         }
     }
 
     public void Open()
     {
-        if (canOpen is true) // я питонист, мне можно, пошел нахуй
+        if (firstOpen is true) // я питонист, мне можно, пошел нахуй
         {
             source.PlayOneShot(destroyClip, 1f);
             for (int i = 0; i < BrokenStamp.Length; i++)
@@ -44,7 +62,19 @@ public class StampHolder : MonoBehaviour
             }
             Destroy(NormalStamp);
             LetterAnimator.SetBool("Open", true);
+            firstOpen = false;
         }
+        if (firstOpen is false)
+        {
+            if (canOpen is true)
+            {
+                leftCollider.enabled = false;
+                rightCollider.enabled = false;
+                LetterAnimator.SetBool("Close", false);
+                LetterAnimator.SetBool("Open", true);
+            }
+        }
+        mailBag.canSend = false;
     }
 
     public void Close()
@@ -53,8 +83,8 @@ public class StampHolder : MonoBehaviour
         {
             leftCollider.enabled = true;
             rightCollider.enabled = true;
+            LetterAnimator.SetBool("Open", false);
             LetterAnimator.SetBool("Close", true);
-            canOpen = false;
         }
     }
 }

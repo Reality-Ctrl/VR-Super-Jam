@@ -20,10 +20,11 @@ public class MailBag : MonoBehaviour, IDetachable
     [SerializeField] private Interactable interactable;
     [SerializeField] private GameObject thisGameObject;
 
-    [SerializeField] Animator animator;
+    public Animator animator;
     [SerializeField] RuntimeAnimatorController[] PipeAnimator;
 
     [HideInInspector] public DayManager dayManager;
+    public bool canSend = true;
 
 
     private Letter _letter;
