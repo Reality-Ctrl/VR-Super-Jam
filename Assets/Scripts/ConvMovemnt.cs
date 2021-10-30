@@ -9,13 +9,6 @@ public class ConvMovemnt : MonoBehaviour
     [SerializeField] GameObject rotator;
     [SerializeField] float angle;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void FixedUpdate()
     {
         Debug.Log(rotator.transform.rotation.x);
@@ -31,7 +24,7 @@ public class ConvMovemnt : MonoBehaviour
             gameObject.transform.parent = root.transform;
             can = true;
         }
-        if (can == true)
+        if (can is true)
         {
             gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition.x + 0.07f, gameObject.transform.localPosition.y, gameObject.transform.localPosition.z);
         }

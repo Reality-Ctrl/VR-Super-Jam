@@ -25145,6 +25145,7 @@ GameObject:
   - component: {fileID: 11766696227282379}
   - component: {fileID: 4693790880378143627}
   - component: {fileID: 3433088893768128414}
+  - component: {fileID: 2008546564259645876}
   m_Layer: 0
   m_Name: Letter
   m_TagString: Letter
@@ -25250,6 +25251,9 @@ MonoBehaviour:
   throwable: {fileID: 0}
   interactable: {fileID: 0}
   thisGameObject: {fileID: 0}
+  animator: {fileID: 6293682827203472351}
+  PipeAnimator:
+  - {fileID: 9100000, guid: 293773ffaf3a7274d848567c3763c4f6, type: 2}
   dayManager: {fileID: 0}
 --- !u!95 &6293682827203472351
 Animator:
@@ -25499,6 +25503,18 @@ MonoBehaviour:
   previewPoseSelection: 0
   blendingBehaviours: []
   scale: 1
+--- !u!114 &2008546564259645876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2790943460702183882}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d82ad2fe19488c42a57fca4061f9e39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2884649163978862539
 GameObject:
   m_ObjectHideFlags: 0

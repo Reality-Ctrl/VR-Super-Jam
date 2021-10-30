@@ -10,11 +10,11 @@ public class SenderTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Letter")
+        if (other.tag is "Letter")
         {
             MailBag mailBag = other.gameObject.GetComponent<MailBag>();
-            
-            if(CityName == mailBag.letter.recipient)
+
+            if (CityName == mailBag.letter.recipient)
             {
                 PassLetter(mailBag.letter);
             }
@@ -32,7 +32,9 @@ public class SenderTrigger : MonoBehaviour
                 ((IDetachable) mailBag).Detach();
             }
 
-            Destroy(other.gameObject); //Возможно тут будет анимация отлёта
+            other.gameObject.transform.parent = gameObject.transform;
+            mailBag.PipeAnimation();
+            // Destroy(other.gameObject); //Возможно тут будет анимация отлёта
         }
     }
 

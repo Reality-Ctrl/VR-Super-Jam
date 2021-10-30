@@ -8,7 +8,7 @@ public class RespawnLetter : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Letter")
+        if (other.tag is "Letter")
         {
             other.gameObject.transform.position = point.position;
         }

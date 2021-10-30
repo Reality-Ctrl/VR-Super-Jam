@@ -11,7 +11,7 @@ public class EnvelopeTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log(other.tag);
-        if (other.tag == "Surguch")
+        if (other.tag is "Surguch")
         {
             other.gameObject.GetComponent<SurguchController>().ChangeState(root);
             Destroy(other.gameObject.GetComponent<Throwable>());

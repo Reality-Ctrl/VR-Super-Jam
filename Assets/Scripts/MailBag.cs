@@ -19,6 +19,10 @@ public class MailBag : MonoBehaviour, IDetachable
     [SerializeField] private Throwable throwable;
     [SerializeField] private Interactable interactable;
     [SerializeField] private GameObject thisGameObject;
+
+    [SerializeField] Animator animator;
+    [SerializeField] RuntimeAnimatorController[] PipeAnimator;
+
     [HideInInspector] public DayManager dayManager;
 
 
@@ -46,7 +50,7 @@ public class MailBag : MonoBehaviour, IDetachable
 
     private void FixedUpdate()
     {
-        if (burning == true) // В чужом глазу соринку видишь, а у себя во рту ХУЙ не увидел
+        if (burning is true)
         {
             if (mat.color.r > 0f)
             {
@@ -74,7 +78,7 @@ public class MailBag : MonoBehaviour, IDetachable
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Fire")
+        if (other.tag is "Fire")
         {
             Detach();
             dayManager.letterPass(letter, true, PassType.Wrong);
@@ -95,5 +99,10 @@ public class MailBag : MonoBehaviour, IDetachable
             Destroy(throwable);
             interactable.enabled = false;
         }
+    }
+
+    public void PipeAnimation()
+    {
+        animator.runtimeAnimatorController = PipeAnimator[UnityEngine.Random.Range(0, PipeAnimator.Length - 1)];
     }
 }
