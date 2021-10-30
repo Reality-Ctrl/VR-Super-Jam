@@ -19,6 +19,10 @@ public class MailBag : MonoBehaviour, IDetachable
     [SerializeField] private Throwable throwable;
     [SerializeField] private Interactable interactable;
     [SerializeField] private GameObject thisGameObject;
+
+    [SerializeField] Animator animator;
+    [SerializeField] RuntimeAnimatorController[] PipeAnimator;
+
     [HideInInspector] public DayManager dayManager;
 
 
@@ -95,5 +99,10 @@ public class MailBag : MonoBehaviour, IDetachable
             Destroy(throwable);
             interactable.enabled = false;
         }
+    }
+
+    public void PipeAnimation()
+    {
+        animator.runtimeAnimatorController = PipeAnimator[UnityEngine.Random.Range(0, PipeAnimator.Length - 1)];
     }
 }
