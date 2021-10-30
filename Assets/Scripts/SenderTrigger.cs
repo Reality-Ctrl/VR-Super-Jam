@@ -13,28 +13,29 @@ public class SenderTrigger : MonoBehaviour
         if (other.tag is "Letter")
         {
             MailBag mailBag = other.gameObject.GetComponent<MailBag>();
+            if (mailBag.canSend is true)
+            {
+                if (CityName == mailBag.letter.recipient)
+                {
+                    PassLetter(mailBag.letter);
+                }
+                else if (mailBag.letter.RightButNotRightRecipient == CityName)
+                {
+                    PassLetter(mailBag.letter, PassType.RightButNotRightRecipient);
+                }
+                else
+                {
+                    PassLetter(mailBag.letter, PassType.Wrong);
+                }
 
-            if (CityName == mailBag.letter.recipient)
-            {
-                PassLetter(mailBag.letter);
-            }
-            else if(mailBag.letter.RightButNotRightRecipient == CityName)
-            {
-                PassLetter(mailBag.letter, PassType.RightButNotRightRecipient);
-            }
-            else
-            {
-                PassLetter(mailBag.letter, PassType.Wrong);
-            }
+                if (mailBag is IDetachable)
+                {
+                    ((IDetachable)mailBag).Detach();
+                }
 
-            if (mailBag is IDetachable)
-            {
-                ((IDetachable) mailBag).Detach();
+                other.gameObject.transform.parent = gameObject.transform;
+                mailBag.PipeAnimation();
             }
-
-            other.gameObject.transform.parent = gameObject.transform;
-            mailBag.PipeAnimation();
-            // Destroy(other.gameObject); //Возможно тут будет анимация отлёта
         }
     }
 
@@ -44,11 +45,11 @@ public class SenderTrigger : MonoBehaviour
         {
             dayManager.letterPass(letter);
         }
-        else if(passType == PassType.RightButNotRightRecipient)
+        else if (passType == PassType.RightButNotRightRecipient)
         {
             dayManager.letterPass(letter, true, PassType.RightButNotRightRecipient);
         }
-        else if(passType == PassType.Wrong)
+        else if (passType == PassType.Wrong)
         {
             dayManager.letterPass(letter, true, PassType.Wrong);
         }

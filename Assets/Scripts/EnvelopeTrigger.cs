@@ -7,6 +7,9 @@ using Valve.VR.InteractionSystem;
 public class EnvelopeTrigger : MonoBehaviour
 {
     [SerializeField] GameObject root;
+    [SerializeField] MailBag mailBag;
+    [SerializeField] StampHolder stampHolder;
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -15,6 +18,8 @@ public class EnvelopeTrigger : MonoBehaviour
         {
             other.gameObject.GetComponent<SurguchController>().ChangeState(root);
             Destroy(other.gameObject.GetComponent<Throwable>());
+            stampHolder.canOpen = false;
+            mailBag.canSend = true;
         }
     }
 }

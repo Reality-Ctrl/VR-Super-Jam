@@ -25160,7 +25160,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2790943460702183882}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: 0.506, y: 0.004161255, z: -0.011193221}
   m_LocalScale: {x: 0.013189374, y: 0.01318937, z: 0.013189374}
   m_Children:
@@ -25172,7 +25172,7 @@ Transform:
   - {fileID: 2853025163728987504}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: -90, z: 0}
 --- !u!114 &2790943460702183883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25255,6 +25255,7 @@ MonoBehaviour:
   PipeAnimator:
   - {fileID: 9100000, guid: 293773ffaf3a7274d848567c3763c4f6, type: 2}
   dayManager: {fileID: 0}
+  canSend: 1
 --- !u!95 &6293682827203472351
 Animator:
   serializedVersion: 3
@@ -26026,6 +26027,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   root: {fileID: 2790943460702183882}
+  mailBag: {fileID: 5705780226398019339}
+  stampHolder: {fileID: 4687264612553050697}
 --- !u!1 &7881487603098159556
 GameObject:
   m_ObjectHideFlags: 0
@@ -26135,6 +26138,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   root: {fileID: 2790943460702183882}
+  mailBag: {fileID: 5705780226398019339}
+  stampHolder: {fileID: 4687264612553050697}
 --- !u!1 &7929049902948034005
 GameObject:
   m_ObjectHideFlags: 0
@@ -26292,6 +26297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d4bd9b3136560248a62a37c2bb2059a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mailBag: {fileID: 5705780226398019339}
   NormalStamp: {fileID: 8207483587786478228}
   BrokenStamp:
   - {fileID: 2087681689320379889}
@@ -26305,6 +26311,7 @@ MonoBehaviour:
   destroyClip: {fileID: 8300000, guid: 1d625ff42ac599d4fbd2617e4d9fc970, type: 3}
   leftCollider: {fileID: 7527975382750875921}
   rightCollider: {fileID: 7443233636314481224}
+  firstOpen: 1
   canOpen: 1
 --- !u!1 &8207483587786478228
 GameObject:
