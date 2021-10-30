@@ -25145,6 +25145,7 @@ GameObject:
   - component: {fileID: 11766696227282379}
   - component: {fileID: 4693790880378143627}
   - component: {fileID: 3433088893768128414}
+  - component: {fileID: 749500759224436790}
   m_Layer: 0
   m_Name: Letter
   m_TagString: Letter
@@ -25161,7 +25162,7 @@ Transform:
   m_GameObject: {fileID: 2790943460702183882}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0.506, y: 0.004161255, z: -0.011193221}
-  m_LocalScale: {x: 0.013189374, y: 0.01318937, z: 0.013189374}
+  m_LocalScale: {x: 0.013189, y: 0.013189, z: 0.013189}
   m_Children:
   - {fileID: 6391837724591055107}
   - {fileID: 7527975382750875922}
@@ -25499,6 +25500,18 @@ MonoBehaviour:
   previewPoseSelection: 0
   blendingBehaviours: []
   scale: 1
+--- !u!114 &749500759224436790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2790943460702183882}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d82ad2fe19488c42a57fca4061f9e39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2884649163978862539
 GameObject:
   m_ObjectHideFlags: 0
