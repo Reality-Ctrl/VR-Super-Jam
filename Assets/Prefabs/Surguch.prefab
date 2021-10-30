@@ -248,6 +248,7 @@ MonoBehaviour:
   source: {fileID: 763189642661181563}
   heading: {fileID: 8300000, guid: 2d8efb036edb48a4ba876249ef09671c, type: 3}
   boxCollider: {fileID: 6407577854142076869}
+  throwable: {fileID: 1726879325750942466}
   volume: 1
 --- !u!82 &763189642661181563
 AudioSource:

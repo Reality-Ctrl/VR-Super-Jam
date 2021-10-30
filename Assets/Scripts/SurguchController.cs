@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using LetterSystem;
 using UnityEngine;
 using Valve.VR;
 using Valve.VR.InteractionSystem;
 
-public class SurguchController : MonoBehaviour
+public class SurguchController : MonoBehaviour, IDetachable
 {
     [SerializeField] Rigidbody Rigidbody;
     [SerializeField] GameObject NormalState;
@@ -12,14 +13,16 @@ public class SurguchController : MonoBehaviour
     [SerializeField] AudioSource source;
     [SerializeField] AudioClip heading;
     [SerializeField] Collider boxCollider;
+    [SerializeField] private Throwable throwable;
     [SerializeField] float volume = 1f;
     bool can = true;
     bool inBox = true;
 
     public void ChangeState(GameObject parent)
     {
-        if (can == true)
+        if (can == true) //Это написал CLOWN на Дане
         {
+            Detach();
             Rigidbody.isKinematic = true;
             gameObject.transform.parent = parent.transform;
             gameObject.transform.rotation = parent.transform.rotation;
@@ -52,5 +55,15 @@ public class SurguchController : MonoBehaviour
     {
         Debug.Log(other.tag);
         inBox = false;
+    }
+
+    public void Detach()
+    {
+        if (throwable.interactable.attachedToHand != null)
+        {
+            throwable.interactable.attachedToHand.DetachObject(this.gameObject);
+            throwable.interactable.enabled = false;
+            Destroy(throwable);
+        }
     }
 }
