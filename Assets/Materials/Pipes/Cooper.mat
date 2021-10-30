@@ -762,7 +762,7 @@ Material:
     - _LightingAdditiveLimitIntensity: 0
     - _LightingAdditiveMaxIntensity: 1
     - _LightingAdditivePassthrough: 0.5
-    - _LightingAdditiveType: 1
+    - _LightingAdditiveType: 0
     - _LightingDetailShadowsEnabled: 0
     - _LightingDetailShadowsUV: 0
     - _LightingDetailStrength: 1
@@ -1237,7 +1237,7 @@ Material:
     - m_start_glitterRandom: 0
     - m_start_glowInDarkEmissionOptions: 0
     - m_start_glowInDarkEmissionOptions1: 0
-    - m_start_lightingAdvanced: 0
+    - m_start_lightingAdvanced: 1
     - m_start_lightingHSL: 0
     - m_start_lightingModifiers: 0
     - m_start_manualFlipbookControl: 0
