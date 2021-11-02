@@ -20159,7 +20159,7 @@ GameObject:
   - component: {fileID: 1264040823}
   - component: {fileID: 1264040822}
   - component: {fileID: 1264040821}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Window
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47547,7 +47547,7 @@ Light:
   m_InnerSpotAngle: 16.263441
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 1
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
